@@ -19,6 +19,12 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         Mapping.setResiterMap();
+        Mapping.setJandIOperationMap();
+        Mapping.setRFunctionMap();
+        FileReader.openFile();
+        FileReader.readFile();
+        FileReader.closeFile();
+        Controller.start();
         //launch(args);
     }
 }
