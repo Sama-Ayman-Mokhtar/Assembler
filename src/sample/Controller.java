@@ -26,6 +26,10 @@ public class Controller {
                     MachineCode.IformatLUI(instDivided);
 
                 }
+                else if(instDivided[0].compareTo("lw") == 0 || instDivided[0].compareTo("sw") == 0){
+                    MachineCode.IformatLWsw(instDivided);
+
+                }
 
             }
         }
