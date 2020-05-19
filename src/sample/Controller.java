@@ -12,6 +12,11 @@ public class Controller {
                     MachineCode.RFormat(instDivided);
 
                 }
+                else if(instDivided[0].compareTo("sll") == 0 || instDivided[0].compareTo("srl") == 0
+                        || instDivided[0].compareTo("sra")== 0){
+                    MachineCode.RFormatShift(instDivided);
+
+                }
 
             }
         }

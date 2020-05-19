@@ -1,2 +1,2 @@
-add $t0, $s2, $t0
-add $s0, $a1, $t7
+sll $t1, $s3, 2
+add $s3, $s3, $s4
