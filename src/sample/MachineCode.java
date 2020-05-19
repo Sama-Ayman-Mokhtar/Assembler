@@ -1,6 +1,8 @@
 package sample;
 
 public class MachineCode {
+    //That's an Assumption for 'J' to work
+    static int baseMemoryAddress = 80000;
     static void RFormat(String[] inst){
         String oper = "000000";
         String func = Tool.decimalToNBitsBinary( Mapping.RFunctionMap.get((inst[0])), 6 );
@@ -61,5 +63,16 @@ public class MachineCode {
 
          String res = oper.concat(rs).concat(rt).concat(immediate);
         System.out.println(res);
+    }
+    static void Jformat(String[] inst){
+
+       String oper = Tool.decimalToNBitsBinary( Mapping.JandIOperationMap.get((inst[0])), 6 );
+
+        int address = (FileReader.findLabelLine(inst[1])-1) * 4 + baseMemoryAddress ;
+        String stringAddress = Tool.decimalToNBitsBinary( String.valueOf(address),32) ;
+        String s1 = stringAddress.substring(4,30);
+         String res = oper.concat(s1);
+        System.out.println(res);
+
     }
 }
