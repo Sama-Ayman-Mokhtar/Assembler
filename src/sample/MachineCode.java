@@ -41,4 +41,25 @@ public class MachineCode {
          String res = oper.concat("00000").concat(rt).concat(immediate);
         System.out.println(res);
     }
+    static void IformatLWsw(String[] inst){
+
+       String oper = Tool.decimalToNBitsBinary( Mapping.JandIOperationMap.get((inst[0])), 6 );
+        String rt = Tool.decimalToNBitsBinary(Mapping.registerMap.get( (inst[1].substring(0,3)) ), 5) ;
+        String rs = Tool.decimalToNBitsBinary(Mapping.registerMap.get( (inst[3].substring(1,4)) ), 5) ;
+        String immediate = Tool.decimalToNBitsBinary( inst[2]  , 16) ;
+
+         String res = oper.concat(rs).concat(rt).concat(immediate);
+        System.out.println(res);
+    }
+    static void IformatBeqBne(String[] inst){
+
+       String oper = Tool.decimalToNBitsBinary( Mapping.JandIOperationMap.get((inst[0])), 6 );
+        String rs = Tool.decimalToNBitsBinary(Mapping.registerMap.get( (inst[1].substring(0,3)) ), 5) ;
+        String rt = Tool.decimalToNBitsBinary(Mapping.registerMap.get( (inst[2].substring(0,3)) ), 5) ;
+        int x = FileReader.findLabelLine(inst[3]) - Controller.counter;
+        String immediate = Tool.decimalToNBitsBinary( String.valueOf(x),16) ;
+
+         String res = oper.concat(rs).concat(rt).concat(immediate);
+        System.out.println(res);
+    }
 }

@@ -3,8 +3,10 @@ import java.util.ArrayList;
 
 public class Controller {
         static ArrayList<String> instruction = new ArrayList<>();
+        static int counter = 1;
         static void start(){
             for (String inst: instruction) {
+                counter ++;
                 String[] instDivided = inst.split(" ");
                 if(instDivided[0].compareTo("and") == 0 || instDivided[0].compareTo("or") == 0
                         || instDivided[0].compareTo("nor")== 0  || instDivided[0].compareTo("add") == 0
@@ -30,6 +32,11 @@ public class Controller {
                     MachineCode.IformatLWsw(instDivided);
 
                 }
+                else if(instDivided[0].compareTo("beq") == 0 || instDivided[0].compareTo("bne") == 0){
+                    MachineCode.IformatBeqBne(instDivided);
+
+                }
+
 
             }
         }

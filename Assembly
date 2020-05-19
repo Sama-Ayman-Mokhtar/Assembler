@@ -1,2 +1,4 @@
-slti $s1, $s2, 4
-lui $t0, 255
+beq $t0, $t1, Else
+add $s6, $s5, $zero
+j Exit
+Else: add $s6, $zero, $zero

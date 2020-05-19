@@ -21,4 +21,20 @@ public class FileReader {
     static void closeFile(){
                 scan.close();
     }
+
+    static int findLabelLine(String label){
+        int lineNum = 1;
+        openFile();
+
+        while(scan.hasNext()){
+            if (scan.nextLine().startsWith(label))
+                break;
+            else{
+                lineNum ++;
+            }
+        }
+
+        closeFile();
+        return lineNum;
+    }
 }
