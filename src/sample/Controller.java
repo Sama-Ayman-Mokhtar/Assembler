@@ -17,6 +17,15 @@ public class Controller {
                     MachineCode.RFormatShift(instDivided);
 
                 }
+                else if(instDivided[0].compareTo("andi") == 0 || instDivided[0].compareTo("ori") == 0
+                        || instDivided[0].compareTo("addi")== 0){
+                    MachineCode.Iformat(instDivided);
+
+                }
+                else if(instDivided[0].compareTo("lui") == 0 ){
+                    MachineCode.IformatLUI(instDivided);
+
+                }
 
             }
         }
