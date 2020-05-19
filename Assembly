@@ -1,2 +1,2 @@
-addi $s1, $s2, 4
+slti $s1, $s2, 4
 lui $t0, 255
