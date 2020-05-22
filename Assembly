@@ -1,4 +1,8 @@
-beq $t0, $t1, Else
-add $s6, $s5, $zero
-j Exit
-Else: add $s6, $zero, $zero
+sub $s1, $s2, $s5 
+sra $t0, $t1, 3 
+ori $s6, $at, 15 
+bne $s0, $s1, Go 
+j Exit 
+lui $t0, 1 
+Go: sw $s5, 3($s5)
+Exit: 

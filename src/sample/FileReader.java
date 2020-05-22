@@ -3,7 +3,6 @@ import java.util.Scanner;
 import java.io.File;
 public class FileReader {
     static Scanner scan;
-
     static  void openFile(){
             try{
                 File file = new File("Assembly");
@@ -25,7 +24,6 @@ public class FileReader {
     static int findLabelLine(String label){
         int lineNum = 1;
         openFile();
-
         while(scan.hasNext()){
             if (scan.nextLine().startsWith(label))
                 break;
@@ -33,7 +31,6 @@ public class FileReader {
                 lineNum ++;
             }
         }
-
         closeFile();
         return lineNum;
     }

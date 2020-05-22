@@ -1,13 +1,11 @@
 package sample;
-
 import java.util.HashMap;
-
 public class Mapping {
     static HashMap<String,String> registerMap = new HashMap<>();
     static HashMap<String,String> JandIOperationMap = new HashMap<>();
     static HashMap<String,String> RFunctionMap = new HashMap<>();
     static void setResiterMap(){
-        registerMap.put("$zero","0");
+        registerMap.put("$ze","0");
         registerMap.put("$at","1");
         registerMap.put("$v0","2");
         registerMap.put("$v1","3");
