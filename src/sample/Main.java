@@ -11,13 +11,13 @@ import javafx.scene.layout.*;
 import javafx.scene.control.ScrollPane.ScrollBarPolicy;
 
 public class Main extends Application {
-     BorderPane bp;
-     GridPane middleGP = new GridPane();
-     ScrollPane sp = getSp();
-     HBox topHBox;
-     VBox bottomVBox;
-     int dynamic = 0;
-     VBox leftVBox;
+     private BorderPane bp;
+     private GridPane middleGP = new GridPane();
+     private ScrollPane sp = getSp();
+     private HBox topHBox;
+     private VBox bottomVBox;
+     private int dynamic = 0;
+     private VBox leftVBox;
      static Boolean start = false;
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -62,7 +62,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-     VBox getBottomVBox(String s){
+     private VBox getBottomVBox(String s){
         bottomVBox = new VBox();
         Button nextInstruction = new Button(s);
         nextInstruction.setStyle("-fx-font-size: 16pt");
@@ -72,14 +72,14 @@ public class Main extends Application {
         nextInstruction.setOnAction(e -> nextAction());
         return bottomVBox;
     }
-    void nextAction(){
+    private void nextAction(){
         addRowMiddleGP(dynamic);
         bp.setCenter(sp);
         bp.setTop(getTopHBox(dynamic + 1));
         if(dynamic < Controller.instruction.size())
             dynamic ++;
     }
-    ScrollPane getSp(){
+    private ScrollPane getSp(){
         ScrollPane sp = new ScrollPane();
         addRowMiddleGP(-1);
         sp.setContent(middleGP);
@@ -89,7 +89,7 @@ public class Main extends Application {
         sp.setPannable(true);
         return  sp;
     }
-    HBox getTopHBox( int line){
+    private HBox getTopHBox( int line){
         topHBox = new HBox();
         Label inst;
         if(line == 0){
@@ -108,7 +108,7 @@ public class Main extends Application {
         topHBox.setPadding(new Insets(20,20,20,20));
         return topHBox;
     }
-    void addRowMiddleGP(int instNum){
+    private void addRowMiddleGP(int instNum){
         if(instNum == -1){
             Label f = new Label("Instruction                            ");
              f.setStyle("-fx-font-weight: bold;");
@@ -154,7 +154,7 @@ public class Main extends Application {
                 Label l5 = new Label(MachineCode.machineCode.get(instNum).substring(21,26));
                 //l5.setStyle("-fx-font-weight: bold;");
                 middleGP.add(l5, 5, instNum + 1);
-                Label l6 = new Label(MachineCode.machineCode.get(instNum).substring(26,32));
+                Label l6 = new Label(MachineCode.machineCode.get(instNum).substring(26,32) );
                 //l6.setStyle("-fx-font-weight: bold;");
                 middleGP.add(l6, 6, instNum + 1);
             }
